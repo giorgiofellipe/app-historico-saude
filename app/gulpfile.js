@@ -26,6 +26,7 @@ var paths = {
     js: [
       './www/*.js',
       './www/**/*.js',
+      '!./www/config/*.js',
       '!./www/lib/**/*.js',
       '!./www/app.module.js'
     ]

@@ -3,7 +3,7 @@
   angular.module('historico-saude.state.doenca-list.controller', [])
     .controller('DoencaListController', DoencaList);
 
-  function DoencaList($scope, $rootScope, $state, $timeout, $http, $ionicFilterBar) {
+  function DoencaList($scope, $rootScope, $state, $timeout, $http, $ionicFilterBar, apiUrl) {
     $scope.doencas = [];
     var filterBarInstance;
 
@@ -27,7 +27,7 @@
       }
       $scope.doencas = null;
       $timeout(function() {
-        $http.get($rootScope.serverUrl + '/doenca')
+        $http.get(apiUrl + '/doenca')
           .success(function(data, status, headers, config) {
             refreshItems(data);
           })
