@@ -3,12 +3,12 @@
   angular.module('historico-saude.state.doenca.controller', [])
     .controller('DoencaController', Doenca);
 
-  function Doenca($scope, $state, $http, $rootScope) {
+  function Doenca($scope, $state, $http, apiUrl) {
       $scope.doenca = {};
 
       $scope.save = function () {
         $scope.doenca.data = new Date();
-        $http.post($rootScope.serverUrl + '/doenca', $scope.doenca)
+        $http.post(apiUrl + '/doenca', $scope.doenca)
           .success(function(){
             $state.go('app.doencas');
           })
