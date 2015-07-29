@@ -6,6 +6,7 @@
         'ionic',
         'historico-saude.controllers',
         'historico-saude.services',
+        'historico-saude.constants',
         'ngCordova',
         'ionic.ion.autoListDivider',
         'jett.ionic.filter.bar'

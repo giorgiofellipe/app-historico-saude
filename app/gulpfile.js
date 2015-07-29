@@ -7,6 +7,9 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var inject = require('gulp-inject');
+var replace = require('gulp-replace-task');
+var args    = require('yargs').argv;
+var fs      = require('fs');
 
 var paths = {
   source: {
@@ -87,4 +90,26 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+gulp.task('replace', function () {
+  // Get the environment from the command line
+  var env = args.env || 'dev';
+
+  // Read the settings from the right file
+  var filename = env + '.json';
+  var settings = JSON.parse(fs.readFileSync('./www/config/' + filename, 'utf8'));
+
+  // Replace each placeholder with the correct value for the variable.
+  gulp.src('./www/config/app.constants.template.js')
+    .pipe(replace({
+      patterns: [
+        {
+          match: 'apiUrl',
+          replacement: settings.apiUrl
+        }
+      ]
+    }))
+    .pipe(rename('app.constants.js'))
+    .pipe(gulp.dest('./www'));
 });
