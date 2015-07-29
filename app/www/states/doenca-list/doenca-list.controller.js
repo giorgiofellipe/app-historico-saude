@@ -15,6 +15,10 @@
         $state.go('app.doenca', {action: 'edit'});
       };
 
+      $scope.dividerFunction = function(key) {
+        return key;
+      };
+
       $scope.refresh = function(forceDelay) {
         var timeout = 0;
         if (forceDelay) {
@@ -22,7 +26,7 @@
         }
         $scope.doencas = null;
         $timeout(function() {
-
+          removeAllDividers();
           $http.get($rootScope.serverUrl + '/doenca')
             .success(function(data, status, headers, config) {
               $scope.doencas = data;
@@ -33,6 +37,12 @@
           $scope.$broadcast('scroll.refreshComplete');
         }, timeout);
       };
+
+      function removeAllDividers() {
+        var result = document.getElementsByClassName("item-divider");
+        var wrappedResult = angular.element(result);
+        wrappedResult.remove();
+      }
 
       $scope.remove = function() {
 

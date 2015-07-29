@@ -7,8 +7,13 @@
   <ion-content>
     <ion-refresher pulling-text="Pull to refresh" on-refresh="refresh(true)"></ion-refresher>
     <ion-list>
-      <ion-item class="item-remove-animate item-icon-right" ng-repeat="doenca in doencas">
-        <span class="data">{{doenca.data | date:"dd/MM/yyyy h:mm"}}</span>
+      <ion-item
+              class="item-remove-animate item-icon-right"
+              auto-list-divider
+              auto-list-divider-value='{{doenca.data | date:"dd/MM/yyyy"}}'
+              auto-list-divider-function="dividerFunction"
+              ng-repeat="doenca in doencas">
+        <span class="data">{{doenca.data | date:"h:mm"}}</span>
         {{doenca.nome}}
         <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-option-button class="button-energized" ng-click="edit(doenca)">
