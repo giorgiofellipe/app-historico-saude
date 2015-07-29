@@ -30,9 +30,7 @@
             .error(function(data, status, headers, config) {
               console.log('error', status, data);
             });
-          //  $scope.doencas = doencas;
-            $scope.$broadcast('scroll.refreshComplete');
-          //
+          $scope.$broadcast('scroll.refreshComplete');
         }, timeout);
       };
 

@@ -13,7 +13,7 @@
             $state.go('app.doencas');
           })
           .error(function(){
-            alert('error');
+            console.log('error', status, data);
           });
       };
     }
