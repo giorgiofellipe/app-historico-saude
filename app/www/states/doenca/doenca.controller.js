@@ -8,7 +8,7 @@
 
       $scope.save = function () {
         $scope.doenca.data = new Date();
-        $http.post('http://localhost:1337/doenca', $scope.doenca)
+        $http.post($scope.serverUrl + '/doenca', $scope.doenca)
           .success(function(){
             $state.go('app.doencas');
           })
