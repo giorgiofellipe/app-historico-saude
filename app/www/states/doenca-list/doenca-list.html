@@ -1,5 +1,6 @@
 <ion-view view-title="Doenças">
   <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()"></button>
     <button class="button button-icon icon"
             ng-class="{'ion-android-add': platform.isAndroid(), 'ion-ios-plus-empty': !platform.isAndroid()}"
             ng-click="new()"></button>

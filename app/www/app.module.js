@@ -7,7 +7,8 @@
         'historico-saude.controllers',
         'historico-saude.services',
         'ngCordova',
-        'ionic.ion.autoListDivider'
+        'ionic.ion.autoListDivider',
+        'jett.ionic.filter.bar'
       ])
     .run(function($ionicPlatform, $rootScope, $state) {
       $ionicPlatform.ready(function() {
