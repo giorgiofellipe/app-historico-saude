@@ -13,6 +13,7 @@ var paths = {
     ionicCss: './scss/ionic.app.scss',
     sass: [
       './www/**/*.scss',
+      './scss/**/*.scss',
       '!./www/lib/**/*.scss'
     ],
     css: [
