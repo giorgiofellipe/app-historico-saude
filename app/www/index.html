@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.min.css" rel="stylesheet">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/ionic.app.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- endinject -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ng-cordova.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+  </head>
+
+  <body ng-app="historico-saude">
+
+    <ion-pane>
+        <div ui-view=""></div>
+    </ion-pane>
+
+
+    <script src="app.module.js"></script>
+    <!-- inject:js -->
+    <script src="app.config.js"></script>
+    <script src="app.controller.js"></script>
+    <script src="states/controllers.module.js"></script>
+    <script src="states/services.js"></script>
+    <script src="states/dashboard/dashboard.controller.js"></script>
+    <script src="states/dashboard/dashboard.routes.js"></script>
+    <script src="states/doenca/doenca.controller.js"></script>
+    <script src="states/doenca/doenca.routes.js"></script>
+    <script src="states/doenca-list/doenca-list.controller.js"></script>
+    <script src="states/doenca-list/doenca-list.routes.js"></script>
+    <script src="states/login/login.controller.js"></script>
+    <script src="states/login/login.routes.js"></script>
+    <script src="states/menu/menu.controller.js"></script>
+    <script src="states/menu/menu.routes.js"></script>
+    <!-- endinject -->
+  </body>
+</html>
