@@ -9,13 +9,26 @@ module.exports = {
 
   attributes: {
 
-    data : { type: 'datetime' },
-
-    dente : { type: 'integer' },
-
-    denticao : { type: 'integer' },
-
-    reacoes : { type: 'string' }
+    data: {
+      type: 'datetime',
+      required: true
+    },
+    dente: {
+      type: 'integer',
+      required: true
+    },
+    denticao: {
+      type: 'integer',
+      required: true
+    },
+    reacoes: {
+      type: 'string',
+      required: true
+    },
+    filho: {
+      model: 'filho',
+      required: true
+    }
   }
 };
 

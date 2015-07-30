@@ -9,13 +9,26 @@ module.exports = {
 
   attributes: {
 
-    data : { type: 'datetime' },
-
-    nome : { type: 'string' },
-
-    sintomas : { type: 'string' },
-
-    tratamento : { type: 'string' }
+    data: {
+      type: 'datetime',
+      required: true
+    },
+    nome: {
+      type: 'string',
+      required: true
+    },
+    sintomas: {
+      type: 'string',
+      required: true
+    },
+    tratamento: {
+      type: 'string',
+      required: true
+    },
+    filho: {
+      model: 'filho',
+      required: true
+    }
   }
 };
 
