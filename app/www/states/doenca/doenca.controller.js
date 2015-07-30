@@ -6,16 +6,19 @@
   function Doenca($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup) {
       $scope.doenca = {};
       $scope.titleData = "Data";
-      $scope.currentDate = new Date();
-      $scope.slots = { epochTime: 12600, format: 24, step: 1 };
       $scope.data = new Date();
-      $scope.hora = $scope.slots.epochTime;
-
-      console.log($stateParams);
+      $scope.hora = 12600;
+      $scope.slots = {format: 24, step: 1 };
+      $scope.doenca.filho = 1;
 
       if ($stateParams.action == 'edit') {
         $scope.doenca = angular.copy(Object.get());
-        console.log($scope.doenca);
+        $scope.data = new Date($scope.doenca.data);
+        var newDate = new Date();
+        newDate.setHours($scope.data.getHours());
+        newDate.setMinutes($scope.data.getMinutes());
+        newDate.setSeconds($scope.data.getSeconds());
+        $scope.hora = newDate.getTime() / 1000;
       }
 
       $scope.callbackDate = function (val) {
@@ -35,7 +38,6 @@
         data.setMinutes(0);
         data.setSeconds(0);
         var dataHora = new Date(($scope.hora + parseInt(data.getTime() / 1000)) * 1000);
-
         $scope.doenca.data = dataHora;
         if(!$scope.doenca.nome || !$scope.doenca.sintomas || !$scope.doenca.tratamento || !$scope.doenca.tratamento){
             $ionicPopup.alert({
@@ -48,7 +50,7 @@
           .success(function(){
             $state.go('app.doencas');
           })
-          .error(function(){
+          .error(function(data, status, headers, config){
             console.log('error', status, data);
         });
       };

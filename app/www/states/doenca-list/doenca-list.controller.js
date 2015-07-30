@@ -12,8 +12,7 @@
     };
 
     $scope.edit = function(doenca) {
-      //Object.set(doenca);
-      $rootScope.modelo = doenca;
+      Object.set(doenca);
       $state.go('app.doenca', {action: 'edit'});
     };
 
@@ -67,7 +66,7 @@
       var result = document.getElementsByClassName("item-divider");
       var wrappedResult = angular.element(result);
       wrappedResult.remove();
-    }
+    };
 
     $scope.refresh();
   }
