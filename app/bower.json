@@ -1,11 +1,10 @@
 {
   "name": "HelloIonic",
   "private": "true",
-  "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.1"
-  },
   "dependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.1",
     "ionic-ion-auto-list-divider": "~1.0.0",
-    "ionic-filter-bar": "~1.0.4"
+    "ionic-filter-bar": "~1.0.4",
+    "ngCordova": "~0.1.17-alpha"
   }
 }
