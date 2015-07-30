@@ -38,8 +38,14 @@
       }, timeout);
     };
 
-    $scope.remove = function() {
-      $scope.refresh(true);
+    $scope.remove = function(doenca) {
+      $http.delete(apiUrl + '/doenca/' + doenca.id)
+          .success(function(){
+            $scope.refresh(true);
+          })
+          .error(function(){
+            console.log('error', status, data);
+      });
     };
 
     $scope.showFilterBar = function () {

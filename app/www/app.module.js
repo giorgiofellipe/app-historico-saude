@@ -9,7 +9,10 @@
         'historico-saude.constants',
         'ngCordova',
         'ionic.ion.autoListDivider',
-        'jett.ionic.filter.bar'
+        'jett.ionic.filter.bar',
+        'ionic-datepicker',
+        'ionic-timepicker'
+
       ])
     .run(function($ionicPlatform, $rootScope, $state) {
       $ionicPlatform.ready(function() {
