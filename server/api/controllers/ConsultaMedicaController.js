@@ -1,7 +1,7 @@
 /**
- * ConsultaController
+ * ConsultaMedicaController
  *
- * @description :: Server-side logic for managing consultas
+ * @description :: Server-side logic for managing Consultamedicas
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 

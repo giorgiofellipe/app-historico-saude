@@ -33,7 +33,7 @@ module.exports = {
       required: true
     },
     dataNascimento: {
-      type: 'datetime',
+      type: 'date',
       required: true
     },
     sexo: {
