@@ -7,7 +7,7 @@
       $scope.doenca = {};
       $scope.titleData = "Data";      
       $scope.currentDate = new Date();
-      $scope.slots = {epochTime: new Date(), format: 24, step: 1};
+      $scope.slots = { epochTime: 12600, format: 24, step: 1 };
 
       $scope.callbackDate = function (val) {
         if(typeof(val)!=='undefined'){      
