@@ -1,19 +1,18 @@
 (function() {
   'use strict';
-  angular.module('historico-saude.state.doenca-list.controller', [])
-    .controller('DoencaListController', DoencaList);
+  angular.module('historico-saude.state.medicacao-list.controller', [])
+    .controller('MedicacaoListController', MedicacaoList);
 
-  function DoencaList($scope, $rootScope, $state, $stateParams, $timeout, $http, $ionicFilterBar, apiUrl, Object) {
-    $scope.doencas = [];
+  function MedicacaoList($scope, $rootScope, $state, $timeout, $http, $ionicFilterBar, apiUrl) {
+    $scope.medicacoes = [];
     var filterBarInstance;
 
     $scope.new = function() {
-      $state.go('app.doenca', {action: 'new'});
+      $state.go('app.medicacao', {action: 'new'});
     };
 
-    $scope.edit = function(doenca) {
-      //Object.set(doenca);
-      $rootScope.modelo = doenca;
+    $scope.edit = function(medicacao) {
+      Object.set(medicacao);
       $state.go('app.doenca', {action: 'edit'});
     };
 
@@ -47,6 +46,11 @@
           .error(function(){
             console.log('error', status, data);
       });
+    };
+
+    $scope.edit = function(doenca) {
+      Object.set(doenca);
+      $state.go('app.doenca', {action: 'edit'});
     };
 
     $scope.showFilterBar = function () {
