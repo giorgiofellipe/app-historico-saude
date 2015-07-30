@@ -1,0 +1,16 @@
+- Baixar do gitt 
+- git clone url
+
+- utilizar -g para instalar global
+
+- git pull origin master
+
+- git checkout 
+
+Para realizar o commit:
+   Para arquivos novos: git add . --all senão apenas git add .
+git commit -m "<mensagem>"
+git push
+
+
+

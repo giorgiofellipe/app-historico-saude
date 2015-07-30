@@ -6,7 +6,9 @@
     'historico-saude.state.menu',
     'historico-saude.state.dashboard',
     'historico-saude.state.doenca-list',
-    'historico-saude.state.doenca'
+    'historico-saude.state.doenca',
+    'historico-saude.state.denticao-list',
+    'historico-saude.state.denticao'
   ]);
 
 //
