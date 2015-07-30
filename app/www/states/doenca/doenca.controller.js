@@ -7,7 +7,9 @@
       $scope.doenca = {};
       $scope.titleData = "Data";      
       $scope.currentDate = new Date();
-      $scope.slots = {epochTime: new Date(), format: 24, step: 1};
+      $scope.slots = { epochTime: 12600, format: 24, step: 1 };
+      $scope.data = new Date();
+      $scope.hora = $scope.slots.epochTime;
 
       $scope.callbackDate = function (val) {
         if(typeof(val)!=='undefined'){      
@@ -21,14 +23,13 @@
       };
 
       $scope.save = function () {
-        var data = $scope.data;
-        var hora = new Date($scope.hora);
-        console.log(data);
-        console.log(hora);
-        var string = '';
-        var date = new Date();
+        var data = new Date($scope.data);
+        data.setHours(0);
+        data.setMinutes(0);
+        data.setSeconds(0);
+        var dataHora = new Date(($scope.hora + parseInt(data.getTime() / 1000)) * 1000);
 
-        $scope.doenca.data = date;
+        $scope.doenca.data = dataHora;
         if(!$scope.doenca.nome || !$scope.doenca.sintomas || !$scope.doenca.tratamento || !$scope.doenca.tratamento){
             $ionicPopup.alert({
               title: 'Oops! :(',

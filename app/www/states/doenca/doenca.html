@@ -10,7 +10,7 @@
       <label class="item item-input item-stacked-label">
         <span class="input-label">Hora*</span>        
         <ionic-timepicker etime="slots.epochTime" format="slots.format" step="slots.step" callback="callbackTime" >    
-          <button class="button button-block button-positive"> {{slots.epochTime}} </button>
+          <button class="button button-block button-positive"> {{ slots.epochTime * 1000 | date:'HH:mm':'UTC' }} </button>
         </ionic-timepicker>
         
       </label>      
