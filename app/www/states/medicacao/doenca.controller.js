@@ -3,28 +3,21 @@
   angular.module('historico-saude.state.doenca.controller', [])
     .controller('DoencaController', Doenca);
 
-  function Doenca($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup) {
+  function Doenca($scope, $state, $http, apiUrl, $ionicPopup) {
       $scope.doenca = {};
-      $scope.titleData = "Data";
+      $scope.titleData = "Data";      
       $scope.currentDate = new Date();
       $scope.slots = { epochTime: 12600, format: 24, step: 1 };
       $scope.data = new Date();
       $scope.hora = $scope.slots.epochTime;
 
-      console.log($stateParams);
-
-      if ($stateParams.action == 'edit') {
-        $scope.doenca = angular.copy(Object.get());
-        console.log($scope.doenca);
-      }
-
       $scope.callbackDate = function (val) {
-        if(typeof(val)!=='undefined'){
+        if(typeof(val)!=='undefined'){      
             $scope.data = val;
         }
       };
       $scope.callbackTime = function(val){
-        if(typeof(val)!=='undefined'){
+        if(typeof(val)!=='undefined'){      
             $scope.hora = val;
         }
       };

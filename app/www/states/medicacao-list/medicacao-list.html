@@ -1,0 +1,29 @@
+<ion-view view-title="Medicações">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()"></button>
+    <button class="button button-icon icon"
+            ng-class="{'ion-android-add': platform.isAndroid(), 'ion-ios-plus-empty': !platform.isAndroid()}"
+            ng-click="new()"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-refresher pulling-text="Pull to refresh" on-refresh="refresh(true)" spinner="dots"></ion-refresher>
+    <ion-list>
+      <ion-item
+              class="item-remove-animate item-icon-right"
+              auto-list-divider
+              auto-list-divider-value='{{doenca.data | date:"dd/MM/yyyy"}}'
+              auto-list-divider-function="dividerFunction"
+              ng-repeat="medicacao in medicacoes">
+        <span class="data">{{medicacao.data | date:"h:mm"}}</span>
+        {{medicacao.nomeMedicacao}}
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-energized" ng-click="edit(medicacao)">
+          Edit
+        </ion-option-button>
+        <ion-option-button class="button-assertive" ng-click="remove(medicacao)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
