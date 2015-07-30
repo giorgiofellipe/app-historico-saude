@@ -48,6 +48,11 @@
       });
     };
 
+    $scope.edit = function(doenca) {
+      Object.set(doenca);
+      $state.go('app.doenca', {action: 'edit'});
+    };
+
     $scope.showFilterBar = function () {
       filterBarInstance = $ionicFilterBar.show({
         items: $scope.doencas,
