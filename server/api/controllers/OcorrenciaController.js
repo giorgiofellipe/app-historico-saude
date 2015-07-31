@@ -19,7 +19,7 @@ module.exports = {
           for (var i in filhos) {
             filhosId.push(filhos[i].id);
           }
-          Ocorrencia.find({filho: filhosId}).exec(function findCB(error, doencas){
+          Ocorrencia.find({filho: filhosId}).populateAll().exec(function findCB(error, doencas){
             if (error) {
               return res.json({error: true, message: error});
             }

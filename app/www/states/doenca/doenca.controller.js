@@ -15,7 +15,7 @@
         $scope.doenca = angular.copy(Object.get());         
         console.log($scope.doenca.filho);
         $scope.data = new Date($scope.doenca.data);
-        console.log($scope.data);
+        $scope.doenca.filho = $scope.doenca.filho.id;
         var newDate = new Date();
         newDate.setHours($scope.data.getHours());
         newDate.setMinutes($scope.data.getMinutes());
