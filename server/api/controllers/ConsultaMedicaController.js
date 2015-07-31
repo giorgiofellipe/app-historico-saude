@@ -10,12 +10,25 @@ module.exports = {
     var user = req.param("user");
     console.log(user);
     if (user) {
-      ConsultaMedica.find().where({usuario: user}).exec(function findCB(err, filhos){
+      Filho.find().where({usuario: user}).exec(function findCB(err, filhos){
         if (err) {
           return res.json({error: true, message: err});
         }
         if (filhos) {
-          return res.json(filhos);
+          var filhosId = new Array();
+          for (var i in filhos) {
+            filhosId.push(filhos[i].id);
+          }
+          ConsultaMedica.find({filho: filhosId}).exec(function findCB(error, doencas){
+            if (error) {
+              return res.json({error: true, message: error});
+            }
+            if (doencas) {
+              return res.json(doencas);
+            } else {
+              return res.json([]);
+            }
+          });
         } else {
           return res.json([]);
         }
