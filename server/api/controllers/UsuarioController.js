@@ -19,7 +19,6 @@ module.exports = {
             }
             if (usuario) {
               if (usuario.senha == formSenha) {
-                usuario.senha = null;
                 return res.json(usuario);
               } else {
                 return res.json(false);
