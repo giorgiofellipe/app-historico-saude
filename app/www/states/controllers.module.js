@@ -12,7 +12,9 @@
     'historico-saude.state.medicacao-list',
     'historico-saude.state.medicacao',
     'historico-saude.state.ocorrencia-list',
-    'historico-saude.state.ocorrencia'
+    'historico-saude.state.ocorrencia',
+    'historico-saude.state.consultaMedica-list',
+    'historico-saude.state.consultaMedica'
 
   ]);
 
