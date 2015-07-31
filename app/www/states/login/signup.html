@@ -1,9 +1,14 @@
-<ion-modal-view class="padding">
-  <label>
-    Para realizar seu cadastro, informe os dados abaixo clicando sobre o Pai ou Mãe.
-    Não é necessário cadastrar Pai e Mãe,  você pode fazer apenas o seu cadastro.
-    Posteriormente poderá pelo sistema informar os dados do outro.
-  </label>
+<ion-view class="padding">
+  <div class="list card">
+    <div class="item item-divider">Instruções</div>
+    <div class="item item-body">
+        <div>
+            Para realizar seu cadastro, informe os dados abaixo clicando sobre o Pai ou Mãe.</br>
+            Não é necessário cadastrar Pai e Mãe,  você pode fazer apenas o seu cadastro.</br>
+            Posteriormente poderá pelo sistema informar os dados do outro.
+        </div>
+    </div>
+  </div>
   <ion-list>
     <ion-item class="item-positive"
           ng-click="toggleGroup('pai')"
@@ -111,4 +116,4 @@
 
   <button class="button button-block button-balanced" ng-click="signUp()">Registrar-se</button>
   <button class="button button-block button-stable" ng-click="loginUI()">Entrar</button>
-</ion-modal-view>
+</ion-view>

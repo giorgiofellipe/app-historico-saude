@@ -5,3 +5,11 @@ ion-item {
     font-weight: bold;
   }
 }
+
+.logo-image {
+  height: 156px;
+  width: 100%;
+
+  display: block;
+  background: url("../../img/logo.png") no-repeat;
+}
