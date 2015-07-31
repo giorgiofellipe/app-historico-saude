@@ -51,7 +51,7 @@ module.exports.routes = {
     action: 'findByUser',
     skipAssets: true
   },
-  'get /consultaMedia/user/:user': {
+  'get /consultaMedica/user/:user': {
     controller: 'ConsultaMedicaController',
     action: 'findByUser',
     skipAssets: true
