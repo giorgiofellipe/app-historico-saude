@@ -35,7 +35,42 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  '/usuario/login': 'UsuarioController.login'
+  '/usuario/login': 'UsuarioController.login',
+  'get /filho/user/:user': {
+    controller: 'FilhoController',
+    action: 'findByUser',
+    skipAssets: true
+  },
+  'get /doenca/user/:user': {
+    controller: 'DoencaController',
+    action: 'findByUser',
+    skipAssets: true
+  },
+  'get /alergia/user/:user': {
+    controller: 'AlergiaController',
+    action: 'findByUser',
+    skipAssets: true
+  },
+  'get /consultaMedia/user/:user': {
+    controller: 'ConsultaMedicaController',
+    action: 'findByUser',
+    skipAssets: true
+  },
+  'get /denticao/user/:user': {
+    controller: 'DenticaoController',
+    action: 'findByUser',
+    skipAssets: true
+  },
+  'get /medicacao/user/:user': {
+    controller: 'MedicacaoController',
+    action: 'findByUser',
+    skipAssets: true
+  },
+  'get /ocorrencia/user/:user': {
+    controller: 'OcorrenciaController',
+    action: 'findByUser',
+    skipAssets: true
+  }
 
   /***************************************************************************
   *                                                                          *

@@ -27,7 +27,7 @@
       }
       $scope.doencas = null;
       $timeout(function() {
-        $http.get(apiUrl + '/doenca')
+        $http.get(apiUrl + '/doenca/user/' + $rootScope.user.id)
           .success(function(data, status, headers, config) {
             refreshItems(data);
           })

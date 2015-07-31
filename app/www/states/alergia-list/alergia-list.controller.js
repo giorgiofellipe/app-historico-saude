@@ -27,7 +27,7 @@
       }
       $scope.alergias = null;
       $timeout(function() {
-        $http.get(apiUrl + '/alergia')
+        $http.get(apiUrl + '/alergia/user/' + $rootScope.user.id)
           .success(function(data, status, headers, config) {
             refreshItems(data);
           })

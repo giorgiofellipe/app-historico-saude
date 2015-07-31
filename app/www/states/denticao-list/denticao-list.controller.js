@@ -39,7 +39,7 @@
       }
       $scope.denticoes = null;
       $timeout(function() {
-        $http.get(apiUrl + '/denticao')
+        $http.get(apiUrl + '/denticao/user/' + $rootScope.user.id)
           .success(function(data, status, headers, config) {
             refreshItems(data);
           })

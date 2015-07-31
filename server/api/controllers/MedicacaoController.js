@@ -6,29 +6,23 @@
  */
 
 module.exports = {
-  data: {
-    type: 'datetime',
-    required: true
-  },
-  classificacao: {
-    type: 'integer',
-    required: true
-  },
-  eficacia: {
-    type: 'integer',
-    required: true
-  },
-  nomeMedicamento: {
-    type: 'string',
-    required: true
-  },
-  posologia: {
-    type: 'string',
-    required: true
-  },
-  filho: {
-    model: 'filho',
-    required: true
+  findByUser: function(req,res) {
+    var user = req.param("user");
+    console.log(user);
+    if (user) {
+      Medicacao.find().where({usuario: user}).exec(function findCB(err, filhos){
+        if (err) {
+          return res.json({error: true, message: err});
+        }
+        if (filhos) {
+          return res.json(filhos);
+        } else {
+          return res.json([]);
+        }
+      });
+    } else {
+      return res.json({error: true, message: 'No user passed'});
+    }
   }
 };
 

@@ -28,7 +28,7 @@
       }
       $scope.consultaMedicas = null;
       $timeout(function() {
-        $http.get(apiUrl + '/consultaMedica')
+        $http.get(apiUrl + '/consultaMedica/user/' + $rootScope.user.id)
           .success(function(data, status, headers, config) {
             refreshItems(data);
           })

@@ -27,7 +27,7 @@
       }
       $scope.filhos = null;
       $timeout(function() {
-        $http.get(apiUrl + '/filho')
+        $http.get(apiUrl + '/filho/user/' + $rootScope.user.id)
           .success(function(data, status, headers, config) {
             refreshItems(data);
           })
