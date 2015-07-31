@@ -6,10 +6,12 @@ ion-item {
   }
 }
 
-.logo-image {
-  height: 156px;
-  width: 100%;
-
-  display: block;
-  background: url("../../img/logo.png") no-repeat;
+.logo {
+  .logo-image {
+    height: 125px;
+    width: 360px;
+    margin: 0 auto;
+    display: block;
+    background: url("../img/logo.png") no-repeat;
+  }
 }
