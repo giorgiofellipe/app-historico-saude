@@ -9,12 +9,26 @@
       $scope.currentDate = new Date();
       $scope.slots = {epochTime: new Date(), format: 24, step: 1};
       $scope.data = new Date();
-      $scope.hora = $scope.slots.epochTime;
-      $scope.classificacaoList = ["Analgésico","Antimicrobiano","Antisseptico","Dermatologico","Parasiticida","Vitamina","Antibiotico","Outros"];
-      $scope.eficaciaList = ["Resolveu","Resolveu Parcial","Não Resolveu"];
+      $scope.hora = $scope.slots.epochTime;      
+      $scope.classificacaoList = [
+        {id:0,nome:"Analgésico"},
+        {id:1,nome:"Antimicrobiano"},
+        {id:2,nome:"Antisseptico"},
+        {id:3,nome:"Dermatologico"},
+        {id:4,nome:"Parasiticida"},
+        {id:5,nome:"Vitamina"},
+        {id:6,nome:"Antibiotico"},
+        {id:7,nome:"Outros"}];
+
+      
+      $scope.eficaciaList = [
+        {id:0,nome:"Resolveu"},
+        {id:1,nome:"Resolveu Parcial"},
+        {id:2,nome:"Não Resolveu"}];
 
       if ($stateParams.action == 'edit') {
         $scope.medicacao = angular.copy(Object.get());
+        console.log($scope.medicacao);
         $scope.data = new Date($scope.medicacao.data);
         var newDate = new Date();
         newDate.setHours($scope.data.getHours());
@@ -40,8 +54,7 @@
         data.setSeconds(0);        
         var dataHora = new Date(($scope.hora + parseInt(data.getTime() / 1000)) * 1000);        
         $scope.medicacao.data = dataHora;
-        $scope.medicacao.filho = 1;        
-        console.log($scope.medicacao.eficacia);
+        $scope.medicacao.filho = 1;                
         if(!$scope.medicacao.posologia || !$scope.medicacao.nomeMedicamento || (!$scope.medicacao.classificacao && $scope.medicacao.classificacao !== 0) || (!$scope.medicacao.eficacia && $scope.medicacao.eficacia !== 0)){
             $ionicPopup.alert({
               title: 'Oops! :(',
@@ -58,6 +71,7 @@
             console.log('error', status, data);
           });
         } else {
+          console.log($scope.medicacao);
           $http.post(apiUrl + '/medicacao', $scope.medicacao)
           .success(function(){
             $state.go('app.medicacoes');
