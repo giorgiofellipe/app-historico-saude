@@ -19,7 +19,7 @@
         newDate.setHours($scope.data.getHours());
         newDate.setMinutes($scope.data.getMinutes());
         newDate.setSeconds($scope.data.getSeconds());
-        $scope.hora = newDate.getTime() / 1000;        
+        $scope.hora = newDate.getTime() / 1000;
       }
 
       $scope.callbackDate = function (val) {
