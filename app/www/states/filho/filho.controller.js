@@ -3,7 +3,7 @@
   angular.module('historico-saude.state.filho.controller', [])
     .controller('FilhoController', Filho);
 
-  function Filho($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup, $rootScope) {
+  function Filho($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup, $rootScope, Filhos) {
     $scope.filho = {};
     $scope.titleData = "Data";
     $scope.data = new Date();
@@ -109,7 +109,10 @@
         });
       } else {
         $http.post(apiUrl + '/filho', $scope.filho)
-        .success(function(){
+        .success(function(data){
+          var filhos = Filhos.get();
+          filhos[filhos.length] = data;
+          Filhos.set(filhos);
           $state.go('app.filhos');
         })
         .error(function(data, status, headers, config){

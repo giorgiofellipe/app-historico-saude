@@ -3,7 +3,7 @@
   angular.module('historico-saude.state.denticao.controller', [])
     .controller('DenticaoController', Denticao);
 
-  function Denticao($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup) {
+  function Denticao($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup, Filhos) {
       $scope.denticao = {};
       $scope.titleData = "Data";      
       $scope.currentDate = new Date();
@@ -24,6 +24,7 @@
         {id:6,nome:"Molar Superior"},
         {id:7,nome:"Molar Inferior"}
       ];
+      $scope.filhos = Filhos.get();
 
       if ($stateParams.action == 'edit') {
         $scope.denticao = angular.copy(Object.get());
