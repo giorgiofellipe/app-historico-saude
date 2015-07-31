@@ -9,7 +9,7 @@
       $scope.data = new Date();
       $scope.hora = 12600;
       $scope.slots = {format: 24, step: 1 };
-      $scope.doenca.filho = 1;
+      
 
       if ($stateParams.action == 'edit') {
         $scope.doenca = angular.copy(Object.get());
@@ -18,7 +18,7 @@
         newDate.setHours($scope.data.getHours());
         newDate.setMinutes($scope.data.getMinutes());
         newDate.setSeconds($scope.data.getSeconds());
-        $scope.hora = newDate.getTime() / 1000;
+        $scope.hora = newDate.getTime() / 1000;        
       }
 
       $scope.callbackDate = function (val) {
@@ -31,6 +31,7 @@
             $scope.hora = val;
         }
       };
+      $scope.doenca.filho = 1;
 
       $scope.save = function () {
         var data = new Date($scope.data);
@@ -46,13 +47,23 @@
             });
             return false;
         }
-        $http.post(apiUrl + '/doenca', $scope.doenca)
+        if ($stateParams.action == 'edit') {
+          $http.put(apiUrl + '/doenca/' + $scope.doenca.id, $scope.doenca)
+          .success(function(){
+            $state.go('app.doencas');
+          })
+          .error(function(){
+            console.log('error', status, data);
+          });
+        } else {
+          $http.post(apiUrl + '/doenca', $scope.doenca)
           .success(function(){
             $state.go('app.doencas');
           })
           .error(function(data, status, headers, config){
             console.log('error', status, data);
-        });
+          });  
+        }        
       };
     }
 })();
