@@ -29,6 +29,7 @@
       if ($stateParams.action == 'edit') {
         $scope.denticao = angular.copy(Object.get());
         $scope.data = new Date($scope.denticao.data);
+        $scope.denticao.filho = $scope.denticao.filho.id;
         var newDate = new Date();
         newDate.setHours($scope.data.getHours());
         newDate.setMinutes($scope.data.getMinutes());

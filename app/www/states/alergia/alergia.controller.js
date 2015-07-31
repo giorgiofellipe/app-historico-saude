@@ -14,6 +14,7 @@
       if ($stateParams.action == 'edit') {
         $scope.alergia = angular.copy(Object.get());
         $scope.data = new Date($scope.alergia.dataPrimeiraOcorrencia);
+        $scope.alergia.filho = $scope.alergia.filho.id;
         var newDate = new Date();
         newDate.setHours($scope.data.getHours());
         newDate.setMinutes($scope.data.getMinutes());

@@ -14,6 +14,7 @@
       if ($stateParams.action == 'edit') {
         $scope.consultaMedica = angular.copy(Object.get());
         $scope.data = new Date($scope.consultaMedica.dataHora);
+        $scope.consultaMedica.filho = $scope.consultaMedica.filho.id;
         var newDate = new Date();
         newDate.setHours($scope.data.getHours());
         newDate.setMinutes($scope.data.getMinutes());
