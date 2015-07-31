@@ -3,7 +3,7 @@
   angular.module('historico-saude.state.login.controller', [])
     .controller('LoginController', Login);
 
-  function Login($scope, $state, $http, apiUrl, $ionicPopup, $rootScope) {
+  function Login($scope, $state, $http, apiUrl, $ionicPopup, $rootScope, $timeout) {
     $scope.email = "pai@pai.com";
     $scope.senha = "123456";
 
@@ -60,6 +60,7 @@
       $http.post(apiUrl + '/usuario', $scope.user)
         .success(function(data, status){
           console.log('Usuário', data);
+          $rootScope.user = data;
           $scope.pai.usuario = data;
           $scope.mae.usuario = data;
           cadastraPessoa($scope.pai);
@@ -68,7 +69,9 @@
         .error(function(data, status, headers, config){
           console.log('error', status, data);
         });
-      $state.go('app.dashboard');
+      $timeout(function() {
+        $state.go('app.filho');
+      }, 400);
     };
 
     $scope.callbackDataNascimentoPai = function (val) {

@@ -1,31 +1,58 @@
-<ion-view view-title="Doença">
+<ion-view view-title="Filho">
   <ion-content class="padding">
     <div class="list">
       <label class="item item-input item-stacked-label">
-        <span class="input-label">Data*</span>
-        <ionic-datepicker idate="date" title="titleData" callback="callbackDate">
-          <button class="button button-block button-positive"> {{ date | date:'dd - MM - yyyy' }} </button>
+        <span class="input-label">Data de Nascimento*</span>
+        <ionic-datepicker idate="data" title="titleData" callback="callbackDate">
+          <button class="button button-block button-positive"> {{ data | date:'dd - MM - yyyy' }} </button>
         </ionic-datepicker>
       </label>
       <label class="item item-input item-stacked-label">
-        <span class="input-label">Hora*</span>
+        <span class="input-label">Hora de Nascimento*</span>
         <ionic-timepicker etime="hora" format="slots.format" step="slots.step" callback="callbackTime" >
           <button class="button button-block button-positive"> {{ hora * 1000 | date:'HH:mm':'UTC' }} </button>
         </ionic-timepicker>
-
       </label>
       <label class="item item-input item-stacked-label">
         <span class="input-label">Nome*</span>
-        <input type="text" placeholder="Nome da doença" ng-model="doenca.nome" ng-required >
+        <input type="text" placeholder="Nome" ng-model="filho.nome" ng-required >
       </label>
       <label class="item item-input item-stacked-label">
-        <span class="input-label">Sintomas*</span>
-        <input type="text" placeholder="Sintomas percebidos" ng-model="doenca.sintomas">
+        <span class="input-label">Altura*</span>
+        <input type="number" placeholder="Altura de Nascimento" ng-model="filho.alturaNascimento">
       </label>
-        <label class="item item-input item-stacked-label">
-            <span class="input-label">Tratamento*</span>
-            <input type="text" placeholder="Tratamento aplicado" ng-model="doenca.tratamento">
-        </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Local Nascimento*</span>
+        <input type="text" placeholder="Local de Nascimento" ng-model="filho.localNascimento">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Padrinho 1*</span>
+        <input type="text" placeholder="Padrinho 1" ng-model="filho.padrinho1">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Madrinha 1*</span>
+        <input type="text" placeholder="Madrinha 1" ng-model="filho.madrinha1">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Padrinho 2*</span>
+        <input type="text" placeholder="Padrinho 2" ng-model="filho.padrinho2">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Madrinha 2*</span>
+        <input type="text" placeholder="Madrinha 2" ng-model="filho.madrinha2">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Peso*</span>
+        <input type="number" placeholder="Peso Nascimento" ng-model="filho.pesoNascimento">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Sexo*</span>
+        <select ng-model="filho.sexo" ng-options="sexo.id as sexo.descricao for sexo in sexos" ></select>
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Signo*</span>
+        <select ng-model="filho.signo" ng-options="signo.id as signo.nome for signo in signos" ></select>
+      </label>
     </div>
     <button class="button button-block button-balanced" ng-click="save()">
       Salvar

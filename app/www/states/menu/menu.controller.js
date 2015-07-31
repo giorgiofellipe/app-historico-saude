@@ -7,7 +7,7 @@
     $rootScope.platform = ionic.Platform;
 
     $scope.logout = function() {
-
+      $rootScope.user = null;
       $state.go('login');
     };
   }
