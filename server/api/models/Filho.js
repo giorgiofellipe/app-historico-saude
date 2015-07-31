@@ -22,8 +22,7 @@ module.exports = {
       required: true
     },
     foto: {
-      type: 'string',
-      required: true
+      type: 'string'
     },
     localNascimento: {
       type: 'string',
