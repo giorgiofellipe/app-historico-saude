@@ -1,119 +1,121 @@
-<ion-view class="padding">
-  <div class="list card">
-    <div class="item item-divider">Instruções</div>
-    <div class="item item-body">
-        <div>
-            Para realizar seu cadastro, informe os dados abaixo clicando sobre o Pai ou Mãe.</br>
-            Não é necessário cadastrar Pai e Mãe,  você pode fazer apenas o seu cadastro.</br>
-            Posteriormente poderá pelo sistema informar os dados do outro.
+<ion-view class="padding" overflow-scroll="true">
+  <ion-content>
+      <div class="list card">
+        <div class="item item-divider">Instruções</div>
+        <div class="item item-body">
+            <div>
+                Para realizar seu cadastro, informe os dados abaixo clicando sobre o Pai ou Mãe.</br>
+                Não é necessário cadastrar Pai e Mãe,  você pode fazer apenas o seu cadastro.</br>
+                Posteriormente poderá pelo sistema informar os dados do outro.
+            </div>
         </div>
-    </div>
-  </div>
-  <ion-list>
-    <ion-item class="item-positive"
-          ng-click="toggleGroup('pai')"
-          ng-class="{active: shownGroupPai}" >
-      <i class="icon" ng-class="shownGroupPai ? 'ion-minus' : 'ion-plus'"></i>
-      Pai
-    </ion-item>
-    <div ng-show="shownGroupPai">
-      <label class="item item-input">
-          <span class="input-label">Nome</span>
-          <input type="text" ng-model="pai.nome" placeholder="Name"/>
-      </label>
-      <label class="item item-input">
-          <span class="input-label">Email</span>
-          <input type="email" ng-model="pai.email" placeholder="Email"/>
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Endereço</span>
-        <input type="text" ng-model="pai.endereco" placeholder="Endereço"/>
-      </label>
-        <label class="item item-input">
-            <span class="input-label">Número</span>
-            <input type="text" ng-model="pai.numero" placeholder="Número"/>
-        </label>
-        <label class="item item-input">
-            <span class="input-label">Bairro</span>
-            <input type="text" ng-model="pai.bairro" placeholder="Bairro"/>
-        </label>
-        <label class="item item-input">
-            <span class="input-label">Cidade</span>
-            <input type="text" ng-model="pai.cidade" placeholder="Cidade"/>
-        </label>
-        <label class="item item-input item-select">
-            <span class="input-label">Estado</span>
-            <select
-                    ng-model="pai.uf"
-                    ng-options="uf for uf in estados">
-            </select>
-        </label>
-        <label class="item item-input item-stacked-label">
-            <span class="input-label">Data de Nascimento</span>
-            <ionic-datepicker idate="pai.dataNascimento" title="titleData" callback="callbackDataNascimentoPai">
-                <button class="button button-block button-positive"> {{ pai.dataNascimento | date:'dd - MM - yyyy' }} </button>
-            </ionic-datepicker>
-        </label>
-        <label class="item item-input">
-            <span class="input-label">Telefone</span>
-            <input type="text" ng-model="pai.telefone" placeholder="Telefone"/>
-        </label>
-    </div>
-    <ion-item class="item-positive"
-            ng-click="toggleGroup('mae')"
-            ng-class="{active: shownGroupMae}" >
-      <i class="icon" ng-class="shownGroupMae ? 'ion-minus' : 'ion-plus'"></i>
-      Mãe
-    </ion-item>
-      <div ng-show="shownGroupMae">
+      </div>
+      <ion-list>
+        <ion-item class="item-positive"
+              ng-click="toggleGroup('pai')"
+              ng-class="{active: shownGroupPai}" >
+          <i class="icon" ng-class="shownGroupPai ? 'ion-minus' : 'ion-plus'"></i>
+          Pai
+        </ion-item>
+        <div ng-show="shownGroupPai">
           <label class="item item-input">
               <span class="input-label">Nome</span>
-              <input type="text" ng-model="mae.nome" placeholder="Name"/>
+              <input type="text" ng-model="pai.nome" placeholder="Name"/>
           </label>
           <label class="item item-input">
               <span class="input-label">Email</span>
-              <input type="email" ng-model="mae.email" placeholder="Email"/>
+              <input type="email" ng-model="pai.email" placeholder="Email"/>
           </label>
           <label class="item item-input">
-              <span class="input-label">Endereço</span>
-              <input type="text" ng-model="mae.endereco" placeholder="Endereço"/>
+            <span class="input-label">Endereço</span>
+            <input type="text" ng-model="pai.endereco" placeholder="Endereço"/>
           </label>
-          <label class="item item-input">
-              <span class="input-label">Número</span>
-              <input type="text" ng-model="mae.numero" placeholder="Número"/>
-          </label>
-          <label class="item item-input">
-              <span class="input-label">Bairro</span>
-              <input type="text" ng-model="mae.bairro" placeholder="Bairro"/>
-          </label>
-          <label class="item item-input">
-              <span class="input-label">Cidade</span>
-              <input type="text" ng-model="mae.cidade" placeholder="Cidade"/>
-          </label>
-          <label class="item item-input item-select">
-              <span class="input-label">Estado</span>
-              <select
-                      ng-model="mae.uf"
-                      ng-options="uf for uf in estados">
-              </select>
-          </label>
-          <label class="item item-input item-stacked-label">
-              <span class="input-label">Data de Nascimento</span>
-              <ionic-datepicker idate="mae.dataNascimento" title="titleData" callback="callbackDataNascimentoMae">
-                  <button class="button button-block button-positive"> {{ mae.dataNascimento | date:'dd - MM - yyyy' }} </button>
-              </ionic-datepicker>
-          </label>
-          <label class="item item-input">
-              <span class="input-label">Telefone</span>
-              <input type="text" ng-model="mae.telefone" placeholder="Telefone"/>
-          </label>
-      </div>
-    <label class="item item-input">
-      <span class="input-label">Senha</span>
-      <input type="password" ng-model="user.senha" id="inputPassword" placeholder="Senha"/>
-    </label>
-  </ion-list>
+            <label class="item item-input">
+                <span class="input-label">Número</span>
+                <input type="text" ng-model="pai.numero" placeholder="Número"/>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Bairro</span>
+                <input type="text" ng-model="pai.bairro" placeholder="Bairro"/>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Cidade</span>
+                <input type="text" ng-model="pai.cidade" placeholder="Cidade"/>
+            </label>
+            <label class="item item-input item-select">
+                <span class="input-label">Estado</span>
+                <select
+                        ng-model="pai.uf"
+                        ng-options="uf for uf in estados">
+                </select>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Data de Nascimento</span>
+                <ionic-datepicker idate="pai.dataNascimento" title="titleData" callback="callbackDataNascimentoPai">
+                    <button class="button button-block button-positive"> {{ pai.dataNascimento | date:'dd - MM - yyyy' }} </button>
+                </ionic-datepicker>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Telefone</span>
+                <input type="text" ng-model="pai.telefone" placeholder="Telefone"/>
+            </label>
+        </div>
+        <ion-item class="item-positive"
+                ng-click="toggleGroup('mae')"
+                ng-class="{active: shownGroupMae}" >
+          <i class="icon" ng-class="shownGroupMae ? 'ion-minus' : 'ion-plus'"></i>
+          Mãe
+        </ion-item>
+          <div ng-show="shownGroupMae">
+              <label class="item item-input">
+                  <span class="input-label">Nome</span>
+                  <input type="text" ng-model="mae.nome" placeholder="Name"/>
+              </label>
+              <label class="item item-input">
+                  <span class="input-label">Email</span>
+                  <input type="email" ng-model="mae.email" placeholder="Email"/>
+              </label>
+              <label class="item item-input">
+                  <span class="input-label">Endereço</span>
+                  <input type="text" ng-model="mae.endereco" placeholder="Endereço"/>
+              </label>
+              <label class="item item-input">
+                  <span class="input-label">Número</span>
+                  <input type="text" ng-model="mae.numero" placeholder="Número"/>
+              </label>
+              <label class="item item-input">
+                  <span class="input-label">Bairro</span>
+                  <input type="text" ng-model="mae.bairro" placeholder="Bairro"/>
+              </label>
+              <label class="item item-input">
+                  <span class="input-label">Cidade</span>
+                  <input type="text" ng-model="mae.cidade" placeholder="Cidade"/>
+              </label>
+              <label class="item item-input item-select">
+                  <span class="input-label">Estado</span>
+                  <select
+                          ng-model="mae.uf"
+                          ng-options="uf for uf in estados">
+                  </select>
+              </label>
+              <label class="item item-input item-stacked-label">
+                  <span class="input-label">Data de Nascimento</span>
+                  <ionic-datepicker idate="mae.dataNascimento" title="titleData" callback="callbackDataNascimentoMae">
+                      <button class="button button-block button-positive"> {{ mae.dataNascimento | date:'dd - MM - yyyy' }} </button>
+                  </ionic-datepicker>
+              </label>
+              <label class="item item-input">
+                  <span class="input-label">Telefone</span>
+                  <input type="text" ng-model="mae.telefone" placeholder="Telefone"/>
+              </label>
+          </div>
+        <label class="item item-input">
+          <span class="input-label">Senha</span>
+          <input type="password" ng-model="user.senha" id="inputPassword" placeholder="Senha"/>
+        </label>
+      </ion-list>
 
-  <button class="button button-block button-balanced" ng-click="signUp()">Registrar-se</button>
-  <button class="button button-block button-stable" ng-click="loginUI()">Entrar</button>
+      <button class="button button-block button-balanced" ng-click="signUp()">Registrar-se</button>
+      <button class="button button-block button-stable" ng-click="loginUI()">Entrar</button>
+  </ion-content>
 </ion-view>
