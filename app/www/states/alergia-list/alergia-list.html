@@ -11,10 +11,10 @@
       <ion-item
               class="item-remove-animate item-icon-right"
               auto-list-divider
-              auto-list-divider-value='{{alergia.filho.id}}'
+              auto-list-divider-value='{{alergia.filho.nome}}'
               auto-list-divider-function="dividerFunction"
               ng-repeat="alergia in alergias">
-        <span class="data">{{alergia.filho.nome}}</span>
+        <span class="data">{{alergia.data | date:"dd/MM/yyyy HH:mm"}}</span>
         {{alergia.componenteAlergico}}
         <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-option-button class="button-energized" ng-click="edit(alergia)">

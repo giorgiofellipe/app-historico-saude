@@ -11,12 +11,12 @@
       <ion-item
               class="item-remove-animate item-icon-right"
               auto-list-divider
-              auto-list-divider-value='{{denticao.filho.id}}'
+              auto-list-divider-value='{{denticao.filho.nome}}'
               auto-list-divider-function="dividerFunction"
               ng-repeat="denticao in denticoes">
-        <span class="data">{{denticao.filho.nome}}</span>
+        <span class="data">{{denticao.data | date:"dd/MM/yyyy HH:mm"}}</span>
         Dente: {{denteList[denticao.dente]}} 
-        - {{denticoesList[denticao.denticao]}}        
+        <p>{{denticoesList[denticao.denticao]}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-option-button class="button-energized" ng-click="edit(denticao)">
           Edit
