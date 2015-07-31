@@ -3,7 +3,7 @@
   angular.module('historico-saude.state.denticao.controller', [])
     .controller('DenticaoController', Denticao);
 
-  function Denticao($scope, $state, $http, apiUrl, $ionicPopup) {
+  function Denticao($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup) {
       $scope.denticao = {};
       $scope.titleData = "Data";      
       $scope.currentDate = new Date();
@@ -25,6 +25,16 @@
         {id:7,nome:"Molar Inferior"}
       ];
 
+      if ($stateParams.action == 'edit') {
+        $scope.denticao = angular.copy(Object.get());
+        $scope.data = new Date($scope.denticao.data);
+        var newDate = new Date();
+        newDate.setHours($scope.data.getHours());
+        newDate.setMinutes($scope.data.getMinutes());
+        newDate.setSeconds($scope.data.getSeconds());
+        $scope.hora = newDate.getTime() / 1000;        
+      }
+
 
       $scope.callbackDate = function (val) {
         if(typeof(val)!=='undefined'){      
@@ -36,6 +46,8 @@
             $scope.hora = val;
         }
       };
+
+      
 
       $scope.save = function () {
         var data = new Date($scope.data);
@@ -52,13 +64,23 @@
             });
             return false;
         }
-        $http.post(apiUrl + '/denticao', $scope.denticao)
+        if ($stateParams.action == 'edit') {
+          $http.put(apiUrl + '/denticao/' + $scope.denticao.id, $scope.denticao)
           .success(function(){
             $state.go('app.denticoes');
           })
           .error(function(){
             console.log('error', status, data);
-        });
+          });
+        } else {
+          $http.post(apiUrl + '/denticao', $scope.denticao)
+          .success(function(){
+            $state.go('app.denticoes');
+          })
+          .error(function(){
+            console.log('error', status, data);
+          });  
+        }
       };
     }
 })();

@@ -3,16 +3,28 @@
   angular.module('historico-saude.state.denticao-list.controller', [])
     .controller('DenticaoListController', DenticaoList);
 
-  function DenticaoList($scope, $rootScope, $state, $timeout, $http, $ionicFilterBar, apiUrl) {
+  function DenticaoList($scope, $rootScope, $state, $stateParams, $timeout, $http, $ionicFilterBar, apiUrl, Object) {
     $scope.denticoes = [];
+      $scope.denticoesList = ["Leite","Permanente"];
+      $scope.denteList = [
+        "Inciso Superior",
+        "Inciso Inferior",
+        "Canino Superior",
+        "Canino Inferior",
+        "Premolar Superior",
+        "Premolar Inferior",
+        "Molar Superior",
+        "Molar Inferior"
+      ];
+
     var filterBarInstance;
 
     $scope.new = function() {
       $state.go('app.denticao', {action: 'new'});
     };
 
-    $scope.edit = function(horario) {
-      Object.set(horario);
+    $scope.edit = function(denticao) {
+      Object.set(denticao);      
       $state.go('app.denticao', {action: 'edit'});
     };
 
