@@ -8,7 +8,9 @@
     'historico-saude.state.doenca-list',
     'historico-saude.state.doenca',
     'historico-saude.state.denticao-list',
-    'historico-saude.state.denticao'
+    'historico-saude.state.denticao',
+    'historico-saude.state.medicacao-list',
+    'historico-saude.state.medicacao'
   ]);
 
 //
