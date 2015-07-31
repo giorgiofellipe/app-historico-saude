@@ -88,9 +88,8 @@
       data.setMinutes(0);
       data.setSeconds(0);
       var dataHora = new Date(($scope.hora + parseInt(data.getTime() / 1000)) * 1000);
-      $scope.filho.dataHoraNascimento = dataHora;
-      $scope.filho.usuario = $rootScope.user;
-      console.log($scope.filho);
+      $scope.filho.dataHoraNascimento = dataHora;      
+      $scope.filho.usuario = $rootScope.user;      
       if(!$scope.filho.nome || !$scope.filho.dataHoraNascimento || !$scope.filho.alturaNascimento ||
          !$scope.filho.localNascimento || !$scope.filho.pesoNascimento || !($scope.filho.sexo >= 0) || !($scope.filho.signo >= 0)) {
           $ionicPopup.alert({
@@ -101,7 +100,7 @@
       }
       if ($stateParams.action == 'edit') {
         $http.put(apiUrl + '/filho/' + $scope.filho.id, $scope.filho)
-        .success(function(){
+        .success(function(){                    
           $state.go('app.filhos');
         })
         .error(function(){
