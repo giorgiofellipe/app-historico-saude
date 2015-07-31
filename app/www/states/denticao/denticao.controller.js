@@ -9,7 +9,7 @@
       $scope.currentDate = new Date();
       $scope.slots = {epochTime: new Date(), format: 24, step: 1};
       $scope.data = new Date();
-      $scope.hora = $scope.slots.epochTime;
+      $scope.hora = $scope.slots.epochTime;      
       $scope.denticoes = [
         {id:0,nome:"Leite"},
         {id:1,nome:"Permanente"}
@@ -56,8 +56,7 @@
         data.setMinutes(0);
         data.setSeconds(0);
         var dataHora = new Date(parseInt($scope.hora / 1000) + parseInt(data.getTime()));
-        $scope.denticao.data = dataHora;
-        $scope.denticao.filho = 1;
+        $scope.denticao.data = dataHora;        
         if(!$scope.denticao.reacoes || (!$scope.denticao.denticao && $scope.denticao.denticao !== 0) || (!$scope.denticao.dente && $scope.denticao.dente !== 0)){
             $ionicPopup.alert({
               title: 'Oops! :(',
