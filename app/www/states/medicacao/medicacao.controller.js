@@ -3,13 +3,14 @@
   angular.module('historico-saude.state.medicacao.controller', [])
     .controller('MedicacaoController', Medicacao);
 
-  function Medicacao($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup) {
+  function Medicacao($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup, Filhos) {
       $scope.medicacao = {};
       $scope.titleData = "Data";      
       $scope.currentDate = new Date();
       $scope.slots = {epochTime: new Date(), format: 24, step: 1};
       $scope.data = new Date();
       $scope.hora = $scope.slots.epochTime;      
+      $scope.filhos = Filhos.get();
       $scope.classificacaoList = [
         {id:0,nome:"Analgésico"},
         {id:1,nome:"Antimicrobiano"},
@@ -27,8 +28,8 @@
         {id:2,nome:"Não Resolveu"}];
 
       if ($stateParams.action == 'edit') {
-        $scope.medicacao = angular.copy(Object.get());
-        console.log($scope.medicacao);
+        $scope.medicacao = angular.copy(Object.get());        
+        $scope.medicacao.filho = $scope.medicacao.filho.id;
         $scope.data = new Date($scope.medicacao.data);
         var newDate = new Date();
         newDate.setHours($scope.data.getHours());
@@ -53,8 +54,7 @@
         data.setMinutes(0);
         data.setSeconds(0);
         var dataHora = new Date(parseInt($scope.hora / 1000) + parseInt(data.getTime()));
-        $scope.medicacao.data = dataHora;
-        $scope.medicacao.filho = 1;                
+        $scope.medicacao.data = dataHora;        
         if(!$scope.medicacao.posologia || !$scope.medicacao.nomeMedicamento || (!$scope.medicacao.classificacao && $scope.medicacao.classificacao !== 0) || (!$scope.medicacao.eficacia && $scope.medicacao.eficacia !== 0)){
             $ionicPopup.alert({
               title: 'Oops! :(',

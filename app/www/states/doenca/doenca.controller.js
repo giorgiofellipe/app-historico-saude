@@ -12,7 +12,8 @@
       $scope.filhos = Filhos.get();
 
       if ($stateParams.action == 'edit') {
-        $scope.doenca = angular.copy(Object.get());
+        $scope.doenca = angular.copy(Object.get());         
+        console.log($scope.doenca.filho);
         $scope.data = new Date($scope.doenca.data);
         $scope.doenca.filho = $scope.doenca.filho.id;
         var newDate = new Date();
