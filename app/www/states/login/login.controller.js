@@ -34,7 +34,7 @@
       $http.post(apiUrl + '/usuario/login', {email: $scope.email, senha: $scope.senha})
         .success(function(data, status){
           if (data) {
-            $rootScope.user = true;
+            $rootScope.user = data;
             $state.go('app.dashboard');
           } else {
             $ionicPopup.alert({

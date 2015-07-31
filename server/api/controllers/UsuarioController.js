@@ -12,7 +12,6 @@ module.exports = {
     if (formEmail && formSenha) {
       console.log("+ AUTH.LOGIN email=", formEmail, "password=", formSenha);
       Pessoa.findOne({email:formEmail}).exec(function findOneCB(err, pessoa){
-        console.log('We found '+ pessoa.usuario);
         if (pessoa) {
           Usuario.findOne({id: pessoa.usuario}).exec(function findOneCB(err, usuario){
             if (err) {
@@ -20,7 +19,8 @@ module.exports = {
             }
             if (usuario) {
               if (usuario.senha == formSenha) {
-                return res.json(true);
+                usuario.senha = null;
+                return res.json(usuario);
               } else {
                 return res.json(false);
               }
