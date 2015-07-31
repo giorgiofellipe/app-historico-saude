@@ -19,7 +19,7 @@ module.exports = {
           for (var i in filhos) {
             filhosId.push(filhos[i].id);
           }
-          Denticao.find({filho: filhosId}).exec(function findCB(error, doencas){
+          Denticao.find({filho: filhosId}).populateAll().exec(function findCB(error, doencas){
             if (error) {
               return res.json({error: true, message: error});
             }
