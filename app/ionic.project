@@ -1,6 +1,6 @@
 {
-  "name": "Histórico Saúde",
-  "app_id": "",
+  "name": "Historico Saude",
+  "app_id": "6039697c",
   "gulpStartupTasks": [
     "sass",
     "watch"
