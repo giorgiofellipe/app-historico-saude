@@ -11,10 +11,9 @@
       <ion-item
               class="item-remove-animate item-icon-right"
               auto-list-divider
-              auto-list-divider-value='{{medicacao.filho.id}}'
+              auto-list-divider-value='{{medicacao.filho.nome}}'
               auto-list-divider-function="dividerFunction"
-              ng-repeat="medicacao in medicacoes">
-        <span class="data">{{medicacao.filho.nome}}</span>
+              ng-repeat="medicacao in medicacoes">        
         {{medicacao.nomeMedicamento}}         
         <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-option-button class="button-energized" ng-click="edit(medicacao)">
