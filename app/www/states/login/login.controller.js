@@ -4,30 +4,30 @@
     .controller('LoginController', Login);
 
   function Login($scope, $state, $http, apiUrl, $ionicPopup, $rootScope, $timeout, Filhos, $ionicScrollDelegate) {
-    //$scope.email = "pai@pai.com";
-    //$scope.senha = "123456";
+    $scope.email = "pai@pai.com";
+    $scope.senha = "123456";
 
     $scope.shownGroupPai = false;
     $scope.shownGroupMae = false;
     $scope.estados = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
     $scope.pai = {uf: $scope.estados[0], sexo: 1, dataNascimento: new Date()};
     $scope.mae = {uf: $scope.estados[0], sexo: 0, dataNascimento: new Date()};
-    ////mock PAI
-    //$scope.pai.nome = 'Pai';
-    //$scope.pai.email = 'pai@pai.com';
-    //$scope.pai.endereco = 'Endereco';
-    //$scope.pai.numero = '123';
-    //$scope.pai.bairro = 'Bai';
-    //$scope.pai.cidade = 'ABC';
-    //$scope.pai.telefone = '1234';
-    ////mock MAE
-    //$scope.mae.nome = 'Mae';
-    //$scope.mae.email = 'mae@mae.com';
-    //$scope.mae.endereco = 'Endereco';
-    //$scope.mae.numero = '123';
-    //$scope.mae.bairro = 'Bai';
-    //$scope.mae.cidade = 'ABC';
-    //$scope.mae.telefone = '1234';
+    //mock PAI
+    $scope.pai.nome = 'Pai';
+    $scope.pai.email = 'pai@pai.com';
+    $scope.pai.endereco = 'Endereco';
+    $scope.pai.numero = '123';
+    $scope.pai.bairro = 'Bai';
+    $scope.pai.cidade = 'ABC';
+    $scope.pai.telefone = '1234';
+    //mock MAE
+    $scope.mae.nome = 'Mae';
+    $scope.mae.email = 'mae@mae.com';
+    $scope.mae.endereco = 'Endereco';
+    $scope.mae.numero = '123';
+    $scope.mae.bairro = 'Bai';
+    $scope.mae.cidade = 'ABC';
+    $scope.mae.telefone = '1234';
 
     $scope.login = function() {
       console.log({email: $scope.email, senha: $scope.senha});
@@ -58,6 +58,7 @@
     };
 
     $scope.signUp = function() {
+      console.log($scope.user);
       $http.post(apiUrl + '/usuario', $scope.user)
         .success(function(data, status){
           console.log('Usuário', data);
