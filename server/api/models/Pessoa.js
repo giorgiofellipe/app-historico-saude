@@ -14,7 +14,8 @@ module.exports = {
     },
     email: {
       type: 'string',
-      required: true
+      required: true,
+      unique: true
     },
     endereco: {
       type: 'string',
