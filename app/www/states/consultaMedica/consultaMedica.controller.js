@@ -3,13 +3,14 @@
   angular.module('historico-saude.state.consultaMedica.controller', [])
     .controller('ConsultaMedicaController', ConsultaMedica);
 
-  function ConsultaMedica($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup) {
+  function ConsultaMedica($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup, Filhos) {
       $scope.consultaMedica = {};
       $scope.titleData = "Data";      
       $scope.currentDate = new Date();
       $scope.slots = {epochTime: new Date(), format: 24, step: 1};
       $scope.data = new Date();
       $scope.hora = $scope.slots.epochTime;
+      $scope.filhos = Filhos.get();
 
       if ($stateParams.action == 'edit') {
         $scope.consultaMedica = angular.copy(Object.get());
@@ -38,8 +39,7 @@
         data.setMinutes(0);
         data.setSeconds(0);
         var dataHora = new Date(parseInt($scope.hora / 1000) + parseInt(data.getTime()));
-        $scope.consultaMedica.dataHora = dataHora;
-        $scope.consultaMedica.filho = 1;                
+        $scope.consultaMedica.dataHora = dataHora;        
         if(!$scope.consultaMedica.descricao || !$scope.consultaMedica.medico || !$scope.consultaMedica.especialidade){
             $ionicPopup.alert({
               title: 'Oops! :(',
