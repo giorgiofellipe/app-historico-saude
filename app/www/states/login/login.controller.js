@@ -3,7 +3,7 @@
   angular.module('historico-saude.state.login.controller', [])
     .controller('LoginController', Login);
 
-  function Login($scope, $state, $http, apiUrl, $ionicPopup, $rootScope, $timeout) {
+  function Login($scope, $state, $http, apiUrl, $ionicPopup, $rootScope, $timeout, Filhos) {
     $scope.email = "pai@pai.com";
     $scope.senha = "123456";
 
@@ -35,6 +35,7 @@
         .success(function(data, status){
           if (data) {
             $rootScope.user = data;
+            carregarFilhos();
             $state.go('app.dashboard');
           } else {
             $ionicPopup.alert({
@@ -94,7 +95,18 @@
         .error(function(data, status, headers, config){
           console.log('error', status, data);
         });
-    }
+    };
+
+    function carregarFilhos() {
+      $http.post(apiUrl + '/usuario/filhos', {user: $rootScope.user.id})
+        .success(function(data, status){
+          console.log(data);
+          Filhos.set(data);
+        })
+        .error(function(data, status, headers, config){
+          console.log('error', status, data);
+        });
+    };
 
     $scope.toggleGroup = function(group) {
       if (group == 'pai') {

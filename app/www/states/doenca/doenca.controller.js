@@ -3,13 +3,13 @@
   angular.module('historico-saude.state.doenca.controller', [])
     .controller('DoencaController', Doenca);
 
-  function Doenca($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup) {
+  function Doenca($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup, Filhos) {
       $scope.doenca = {};
       $scope.titleData = "Data";
       $scope.data = new Date();
       $scope.hora = 12600;
       $scope.slots = {format: 24, step: 1 };
-      
+      $scope.filhos = Filhos.get();
 
       if ($stateParams.action == 'edit') {
         $scope.doenca = angular.copy(Object.get());
@@ -31,7 +31,6 @@
             $scope.hora = val;
         }
       };
-      $scope.doenca.filho = 1;
 
       $scope.save = function () {
         var data = new Date($scope.data);

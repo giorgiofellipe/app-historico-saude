@@ -19,7 +19,6 @@ module.exports = {
             }
             if (usuario) {
               if (usuario.senha == formSenha) {
-                usuario.senha = null;
                 return res.json(usuario);
               } else {
                 return res.json(false);
@@ -35,6 +34,24 @@ module.exports = {
     } else {
       console.log("+ AUTH.LOGIN (empty credentials)");
       return res.json(false);
+    }
+  },
+  filhos: function (req, res) {
+    var user = req.param("user");
+    console.log(user);
+    if (user) {
+      Filho.find().where({usuario: user}).exec(function findCB(err, filhos){
+        if (err) {
+          return res.json({error: true, message: err});
+        }
+        if (filhos) {
+          return res.json(filhos);
+        } else {
+          return res.json([]);
+        }
+      });
+    } else {
+      return res.json({error: true, message: 'No user passed'});
     }
   }
 };
