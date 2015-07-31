@@ -35,8 +35,8 @@
         var data = new Date($scope.data);
         data.setHours(0);
         data.setMinutes(0);
-        data.setSeconds(0);        
-        var dataHora = new Date(($scope.hora + parseInt(data.getTime() / 1000)) * 1000);        
+        data.setSeconds(0);
+        var dataHora = new Date(parseInt($scope.hora / 1000) + parseInt(data.getTime()));
         $scope.consultaMedica.dataHora = dataHora;
         $scope.consultaMedica.filho = 1;                
         if(!$scope.consultaMedica.descricao || !$scope.consultaMedica.medico || !$scope.consultaMedica.especialidade){
