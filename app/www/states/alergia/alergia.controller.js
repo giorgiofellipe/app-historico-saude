@@ -3,13 +3,13 @@
   angular.module('historico-saude.state.alergia.controller', [])
     .controller('AlergiaController', Alergia);
 
-  function Alergia($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup) {
+  function Alergia($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup, Filhos) {
       $scope.alergia = {};
       $scope.titleData = "Data";
       $scope.data = new Date();
       $scope.hora = 12600;
       $scope.slots = {format: 24, step: 1 };
-      
+      $scope.filhos = Filhos.get();
 
       if ($stateParams.action == 'edit') {
         $scope.alergia = angular.copy(Object.get());
@@ -31,8 +31,7 @@
         if(typeof(val)!=='undefined'){
             $scope.hora = val;
         }
-      };
-      $scope.alergia.filho = 1;
+      };      
 
       $scope.save = function () {
 
