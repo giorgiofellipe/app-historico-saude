@@ -1,5 +1,5 @@
 /**
-* ConsultaMedica.js
+* Alergia.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -8,23 +8,22 @@
 module.exports = {
 
   attributes: {
-    dataHora: {
+  	dataPrimeiraOcorrencia: {
       type: 'datetime',
       required: true
     },
-    descricao: {
+    componenteAlergico: {
       type: 'string',
       required: true
     },
-    especialidade: {
+    sintomas: {
       type: 'string',
       required: true
     },
-    medico: {
+    antidoto: {
       type: 'string',
       required: true
     },
-    valor : { type: 'float' ,required: true},
     filho: {
       model: 'filho',
       required: true

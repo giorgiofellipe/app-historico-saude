@@ -9,13 +9,24 @@ module.exports = {
 
   attributes: {
 
-    data : { type: 'datetime' },
+    data : { type: 'datetime' , required: true},
 
-    nomeMedicamento : { type: 'string' },
+    nomeMedicamento : { type: 'string' ,required: true},
 
-    posologia : { type: 'string' },
+    posologia : { type: 'string' ,required: true},
 
-    eficacia : { type: 'integer' }
+    eficacia : { type: 'integer' ,required: true},
+
+    classificacao : { type: 'integer' ,required: true},
+
+    valor : { type: 'float' ,required: true},
+
+    principioAtivo : { type: 'string',required: true },
+
+    filho: {
+      model: 'filho',
+      required: true
+    }
   }
 };
 
