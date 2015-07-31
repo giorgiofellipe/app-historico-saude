@@ -3,7 +3,7 @@
   angular.module('historico-saude.state.login.controller', [])
     .controller('LoginController', Login);
 
-  function Login($scope, $state, $http, apiUrl, $ionicPopup, $rootScope, $timeout, Filhos) {
+  function Login($scope, $state, $http, apiUrl, $ionicPopup, $rootScope, $timeout, Filhos, $ionicScrollDelegate) {
     $scope.email = "pai@pai.com";
     $scope.senha = "123456";
 
@@ -114,6 +114,7 @@
       } else {
         $scope.shownGroupMae = !$scope.shownGroupMae;
       }
+      $ionicScrollDelegate.resize();
     };
   }
 })();
