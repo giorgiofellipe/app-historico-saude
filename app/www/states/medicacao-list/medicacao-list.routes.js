@@ -2,9 +2,9 @@
   'use strict';
   angular.module('historico-saude.state.medicacao-list', ['historico-saude.state.medicacao-list.controller'])
 
-    .config(configDoenca);
+    .config(configMedicacao);
 
-  function configDoenca($stateProvider) {
+  function configMedicacao($stateProvider) {
     $stateProvider
       .state('app.medicacoes', {
         url: "/medicacoes",

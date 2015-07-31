@@ -10,7 +10,10 @@
     'historico-saude.state.denticao-list',
     'historico-saude.state.denticao',
     'historico-saude.state.medicacao-list',
-    'historico-saude.state.medicacao'
+    'historico-saude.state.medicacao',
+    'historico-saude.state.ocorrencia-list',
+    'historico-saude.state.ocorrencia'
+
   ]);
 
 //
