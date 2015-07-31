@@ -16,7 +16,9 @@
     'historico-saude.state.ocorrencia-list',
     'historico-saude.state.ocorrencia',
     'historico-saude.state.consultaMedica-list',
-    'historico-saude.state.consultaMedica'
+    'historico-saude.state.consultaMedica',
+    'historico-saude.state.alergia-list',
+    'historico-saude.state.alergia'
 
   ]);
 
