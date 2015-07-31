@@ -2,6 +2,10 @@
   <ion-content class="padding">
     <div class="list">
       <label class="item item-input item-stacked-label">
+        <span class="input-label">Filho*</span>
+        <select ng-model="ocorrencia.filho" ng-options="filho.id as filho.nome for filho in filhos" ></select>
+      </label>
+      <label class="item item-input item-stacked-label">
         <span class="input-label">Data*</span>        
         <ionic-datepicker idate="data" disablepreviousdates="false"  disablefuturedates="false" disableddates="disabledDates" title="titleData" callback="callbackDate">
           <button class="button button-block button-positive"> {{ data | date:'dd - MM - yyyy' }} </button>

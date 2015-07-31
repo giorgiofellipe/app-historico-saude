@@ -11,10 +11,9 @@
       <ion-item
               class="item-remove-animate item-icon-right"
               auto-list-divider
-              auto-list-divider-value='{{ocorrencia.filho.id}}'
+              auto-list-divider-value='{{ocorrencia.filho.nome}}'
               auto-list-divider-function="dividerFunction"
-              ng-repeat="ocorrencia in ocorrencias">
-        <span class="data">{{ocorrencia.filho.nome}}</span>
+              ng-repeat="ocorrencia in ocorrencias">        
         {{ocorrencia.descricao}}         
         <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-option-button class="button-energized" ng-click="edit(ocorrencia)">

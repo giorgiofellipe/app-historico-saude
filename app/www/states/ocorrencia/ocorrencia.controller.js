@@ -3,16 +3,18 @@
   angular.module('historico-saude.state.ocorrencia.controller', [])
     .controller('OcorrenciaController', Ocorrencia);
 
-  function Ocorrencia($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup) {
+  function Ocorrencia($scope, $state, $stateParams, $http, Object, apiUrl, $ionicPopup, Filhos) {
       $scope.ocorrencia = {};
       $scope.titleData = "Data";      
       $scope.currentDate = new Date();
       $scope.slots = {epochTime: new Date(), format: 24, step: 1};
       $scope.data = new Date();
       $scope.hora = $scope.slots.epochTime;
+      $scope.filhos = Filhos.get();
 
       if ($stateParams.action == 'edit') {
         $scope.ocorrencia = angular.copy(Object.get());
+        $scope.ocorrencia.filho = $scope.ocorrencia.filho.id;
         $scope.data = new Date($scope.ocorrencia.dataHora);
         var newDate = new Date();
         newDate.setHours($scope.data.getHours());
@@ -37,8 +39,7 @@
         data.setMinutes(0);
         data.setSeconds(0);
         var dataHora = new Date(parseInt($scope.hora / 1000) + parseInt(data.getTime()));
-        $scope.ocorrencia.dataHora = dataHora;
-        $scope.ocorrencia.filho = 1;                
+        $scope.ocorrencia.dataHora = dataHora;        
         if(!$scope.ocorrencia.descricao){
             $ionicPopup.alert({
               title: 'Oops! :(',
