@@ -11,10 +11,10 @@
       <ion-item
               class="item-remove-animate item-icon-right"
               auto-list-divider
-              auto-list-divider-value='{{consultaMedica.filho.id}}'
+              auto-list-divider-value='{{consultaMedica.filho.nome}}'
               auto-list-divider-function="dividerFunction"
               ng-repeat="consultaMedica in consultaMedicas">
-        <span class="data">{{consultaMedica.filho.nome}}</span>
+        <span class="data">{{consultaMedica.data | date:"dd/MM/yyyy HH:mm"}}</span>
         {{consultaMedica.descricao}}         
         <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-option-button class="button-energized" ng-click="edit(consultaMedica)">

@@ -13,7 +13,8 @@
               auto-list-divider
               auto-list-divider-value='{{medicacao.filho.nome}}'
               auto-list-divider-function="dividerFunction"
-              ng-repeat="medicacao in medicacoes">        
+              ng-repeat="medicacao in medicacoes">
+        <span class="data">{{medicacao.data | date:"dd/MM/yyyy HH:mm"}}</span>
         {{medicacao.nomeMedicamento}}         
         <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-option-button class="button-energized" ng-click="edit(medicacao)">

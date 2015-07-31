@@ -14,7 +14,7 @@
               auto-list-divider-value='{{doenca.filho.nome}}'
               auto-list-divider-function="dividerFunction"
               ng-repeat="doenca in doencas">
-        <span class="data">{{doenca.filho.nome}}</span>
+        <span class="data">{{doenca.data | date:"dd/MM/yyyy HH:mm"}}</span>
         {{doenca.nome}}
         <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-option-button class="button-energized" ng-click="edit(doenca)">
